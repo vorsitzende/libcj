@@ -1,6 +1,5 @@
 # Multipurpose General Makefile
-# Claudia Jughashvili
-# 2018
+# Claudia Jughashvili, 2019
 
 CC        := i686-elf-gcc
 CPP       := i686-elf-g++
