@@ -1,5 +1,5 @@
-# Multipurpose General Makefile Repurposed for Project Ionia.
-# Coded by Ian McLeod Miller
+# Multipurpose General Makefile
+# Claudia Jughashvili
 # 2018
 
 CC        := i686-elf-gcc
