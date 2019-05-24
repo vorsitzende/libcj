@@ -9,7 +9,7 @@ namespace cj {
   extern "C" {
 #endif
 
-    const char*   itoa    (int, char*);
+    const char*   itoa    (int, char*, unsigned int);
     unsigned int  strlen  (const char*);
     unsigned char strcmp  (const char*, const char*);
 

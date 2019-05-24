@@ -18,7 +18,7 @@ HEADERS   := $(notdir $(shell find $(INC) -maxdepth 1 -name '*.h')) \
              $(notdir $(shell find $(INC) -maxdepth 1 -name '*.hpp'))
 OHEADERS  := $(addprefix $(OUTDIR)/include/,$(HEADERS))
 OUT       := $(OUTDIR)/lib/libcj.a
-FLAGS     := -felf
+FLAGS     := -felf -iinc
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.asm
 	$(AS) $(FLAGS) $< -o $@
