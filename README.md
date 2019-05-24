@@ -20,4 +20,4 @@ with memory constraints.
 
 - `memcpy()`
 
-  Coppies a number of bytes of memory from one location to another.
+  Copies a number of bytes of memory from one location to another.
