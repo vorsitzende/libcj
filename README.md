@@ -17,3 +17,7 @@ with memory constraints.
 - `strcmp()`
 
   Compares two strings.
+
+- `memcpy()`
+
+  Coppies a number of bytes of memory from one location to another.

@@ -12,6 +12,7 @@ namespace cj {
     const char*   itoa    (int, char*, unsigned int);
     unsigned int  strlen  (const char*);
     unsigned char strcmp  (const char*, const char*);
+    void*         memcpy  (void*, const void*, unsigned int);
 
 #ifdef __cplusplus
   };

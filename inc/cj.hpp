@@ -10,6 +10,7 @@ namespace cj {
     const char*   itoa    (int, char*, unsigned int = 10);
     unsigned int  strlen  (const char*);
     bool          strcmp  (const char*, const char*);
+    void*         memcpy  (void*, const void*, unsigned int);
 
   };
 };
