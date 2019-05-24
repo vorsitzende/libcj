@@ -14,7 +14,7 @@ SRCDIR    := src
 OUTDIR    := output
 SRC       := $(notdir $(shell find $(SRCDIR) -maxdepth 1 -name '*.asm'))
 OBJ       := $(addprefix $(OBJDIR)/,$(SRC:%.asm=%.o))
-HEADERS   := $(notdir $(shell find $(INC) -maxdepth 1 -name '*.h'))
+HEADERS   := $(notdir $(shell find $(INC) -maxdepth 1 -name '*.h')) \
              $(notdir $(shell find $(INC) -maxdepth 1 -name '*.hpp'))
 OHEADERS  := $(addprefix $(OUTDIR)/include/,$(HEADERS))
 OUT       := $(OUTDIR)/lib/libcj.a
@@ -24,9 +24,14 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.asm
 	$(AS) $(FLAGS) $< -o $@
 	$(STRIP) -s $@
 
-all: $(OBJ)
+$(OUTDIR)/include/%.h : $(INC)/%.h
+	cp $< $@
+
+$(OUTDIR)/include/%.hpp : $(INC)/%.hpp
+	cp $< $@
+
+all: $(OBJ) $(OHEADERS)
 	$(AR) rcs $(OUT) $(OBJ)
-	cp $(addprefix $(INC)/,$(HEADERS)) $(OHEADERS)
 
 .PHONY : clean
 clean :
