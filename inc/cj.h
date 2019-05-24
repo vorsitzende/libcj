@@ -13,6 +13,7 @@ namespace cj {
     unsigned int  strlen  (const char*);
     unsigned char strcmp  (const char*, const char*);
     void*         memcpy  (void*, const void*, unsigned int);
+    void*         memset  (void*, unsigned char, unsigned int);
 
 #ifdef __cplusplus
   };

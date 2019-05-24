@@ -21,3 +21,7 @@ with memory constraints.
 - `memcpy()`
 
   Copies a number of bytes of memory from one location to another.
+
+- `memset()`
+
+  Writes a value incrementally to a given memory location a number of times.
