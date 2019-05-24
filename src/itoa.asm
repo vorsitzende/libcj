@@ -15,11 +15,11 @@
 ;     -   The minimum number of bytes altered is 2. (eg "0" + '\0')
 ;   C Definition to take the form of:
 ;     -   extern const char* itoa (int, char*, unsigned char);
-global _itoa
+global _iitoa
 section .data
 abcs    db    "0123456789ABCDEF"
 section .text
-_itoa:  push  ebp
+_iitoa:  push  ebp
         mov   ebp, esp
         pusha
         mov   eax, dword [ebp+16]
@@ -27,6 +27,7 @@ _itoa:  push  ebp
         je    .A0
         cmp   eax, 16
         je    .A5
+        popa
         xor   eax, eax
         jmp   .Ax
     .A0:mov   eax, dword [ebp+8]
@@ -41,7 +42,8 @@ _itoa:  push  ebp
         inc   esi
     .A1:call  .A3
         mov   byte [esi], 0
-        lea   eax, [ebx]
+        popa
+        mov   eax, [ebp+12]
         jmp   .Ax
     .A2:mov   byte [esi], '0'
         mov   byte [esi+1], 0
@@ -73,23 +75,21 @@ _itoa:  push  ebp
         movzx ebx, al
         shr   eax, 8
         mov   edx, eax
-        cmp   edx, 0
-        jz    .A6
         call  xtoab
-    .A6:mov   edx, ebx
-        cmp   edx, 0
-        jz    .A7
+        mov   edx, ebx
         call  xtoab
-    .A7:mov   edx, ecx
-        cmp   edx, 0
-        jz    .A8
+        mov   edx, ecx
         call  xtoab
-    .A8:mov   edx, edi
+        mov   edx, edi
         call  xtoab
         mov   byte [esi], 0
+        popa
         mov   eax, dword [ebp+12]
-    .Ax:popa
-        pop   ebp
+    .A6:cmp   byte [eax], '0'
+        jne   .Ax
+        inc   eax
+        jmp   .A6
+    .Ax:pop   ebp
         ret
 xtoab:  push  eax
         push  ebx
