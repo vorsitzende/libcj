@@ -29,7 +29,7 @@ _itoa:  push  ebp
         je    .A5
         popa
         xor   eax, eax
-        jmp   .Ax
+        jmp   .A7
     .A0:mov   eax, dword [ebp+8]
         mov   ebx, dword [ebp+12]
         lea   esi, [ebx]
@@ -44,10 +44,10 @@ _itoa:  push  ebp
         mov   byte [esi], 0
         popa
         mov   eax, [ebp+12]
-        jmp   .Ax
+        jmp   .A7
     .A2:mov   byte [esi], '0'
         mov   byte [esi+1], 0
-        jmp   .Ax
+        jmp   .A7
     .A3:push  eax
         push  ebx
         push  edx
@@ -86,10 +86,10 @@ _itoa:  push  ebp
         popa
         mov   eax, dword [ebp+12]
     .A6:cmp   byte [eax], '0'
-        jne   .Ax
+        jne   .A7
         inc   eax
         jmp   .A6
-    .Ax:pop   ebp
+    .A7:pop   ebp
         ret
 xtoab:  push  eax
         push  ebx
