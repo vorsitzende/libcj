@@ -15,11 +15,11 @@
 ;     -   The minimum number of bytes altered is 2. (eg "0" + '\0')
 ;   C Definition to take the form of:
 ;     -   extern const char* itoa (int, char*, unsigned char);
-global _iitoa
+global _itoa
 section .data
 abcs    db    "0123456789ABCDEF"
 section .text
-_iitoa:  push  ebp
+_itoa:  push  ebp
         mov   ebp, esp
         pusha
         mov   eax, dword [ebp+16]
