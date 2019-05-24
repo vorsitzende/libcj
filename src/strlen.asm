@@ -22,4 +22,5 @@ _strlen:push  ebp
         inc   eax
         jmp   .A0
     .A1:pop   esi
+        pop   ebp
         ret
