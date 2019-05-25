@@ -11,8 +11,8 @@
 ;         bytes requested.  Does not append a '\0' to the end.
 ;   C Definition to take the form of:
 ;     -   extern void* memcpy (void*, const void*, std::size_t);
-global _memcpy
-section .text
+global    _memcpy
+section   .text
 _memcpy:  push  ebp
           mov   ebp, esp
           push  esi

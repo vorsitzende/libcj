@@ -15,7 +15,7 @@
 ;     -   The minimum number of bytes altered is 2. (eg "0" + '\0')
 ;   C Definition to take the form of:
 ;     -   extern const char* itoa (int, char*, unsigned char);
-global _itoa
+global  _itoa
 section .data
 abcs    db    "0123456789ABCDEF"
 section .text

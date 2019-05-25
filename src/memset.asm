@@ -11,8 +11,8 @@
 ;         number of times specified.
 ;   C Definition to take the form of:
 ;     -   extern void* memset (void*, unsigned char, std::size_t);
-global  _memset
-section .text
+global    _memset
+section   .text
 _memset:  push  ebp
           mov   ebp, esp
           push  esi
